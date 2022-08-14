@@ -1,3 +1,3 @@
-**Point-Cloud Deep Learning for Prediction of Fluid Flow Fields on Irregular Geometries (Supervised Learning)**
+**Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet**
 
 **Authors:** Ali Kashefi (kashefi@stanford.edu)<br>
