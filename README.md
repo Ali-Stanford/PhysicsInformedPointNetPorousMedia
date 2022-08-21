@@ -4,4 +4,4 @@
 
 The manuscript is under review in AGU
 
-![alt text](https://github.com/Ali-Stanford/PhysicsInformedPointNetPorousMedia/blob/main/Figure1prime_model.pdf?raw=true)
+![Model](https://github.com/Ali-Stanford/PhysicsInformedPointNetPorousMedia/blob/main/Figure1prime_model.pdf?raw=true)
