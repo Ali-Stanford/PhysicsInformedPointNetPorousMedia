@@ -385,20 +385,14 @@ pose_interior_p = tf.placeholder(tf.int32, None) #taken from prediction
     
 def ComputeCost_SE(X,Y):
 
-    u_in = tf.gather(tf.reshape(Y[0][:,:,0],[-1]),pose_interior_p)
-    v_in = tf.gather(tf.reshape(Y[0][:,:,1],[-1]),pose_interior_p)
     du_dx_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]),pose_interior_p) #du/dx in domain
     d2u_dx2_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(Y[0][:,:,0], X)[0][:,:,0], X)[0][:,:,0],[-1]),pose_interior_p) #d2u/dx2 in domain
-    du_dy_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,1],[-1]),pose_interior_p) #du/dy in domain
     d2u_dy2_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(Y[0][:,:,0], X)[0][:,:,1], X)[0][:,:,1], [-1]),pose_interior_p) #d2u/dy2 in domain
-    dv_dx_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,1], X)[0][:,:,0],[-1]),pose_interior_p) #dv/dx in domain
     d2v_dx2_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(Y[0][:,:,1], X)[0][:,:,0], X)[0][:,:,0], [-1]),pose_interior_p) #d2v/dx2 in domain
     dv_dy_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,1], X)[0][:,:,1],[-1]),pose_interior_p) #dv/dy in domain
     d2v_dy2_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(Y[0][:,:,1], X)[0][:,:,1], X)[0][:,:,1], [-1]),pose_interior_p) #d2v/dy2 in domain
     dp_dx_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,2], X)[0][:,:,0],[-1]),pose_interior_p) #dp/dx in domain
     dp_dy_in =  tf.gather(tf.reshape(backend.gradients(Y[0][:,:,2], X)[0][:,:,1],[-1]),pose_interior_p) #dp/dy in domain
-    du_dy_in = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,1],[-1]),pose_interior_p) #du/dy in domain
-    dv_dx_in = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,1], X)[0][:,:,0],[-1]),pose_interior_p) #dv/dx in domain
     
     r1 = 1.0*dp_dx_in - viscosity*(d2u_dx2_in + d2u_dy2_in)
     r2 = 1.0*dp_dy_in - viscosity*(d2v_dx2_in + d2v_dy2_in)
@@ -408,17 +402,12 @@ def ComputeCost_SE(X,Y):
     u_sparse = tf.gather(tf.reshape(Y[0][:,:,0], [-1]), pose_sparse_p)
     v_boundary = tf.gather(tf.reshape(Y[0][:,:,1], [-1]), pose_BC_p) 
     v_sparse = tf.gather(tf.reshape(Y[0][:,:,1], [-1]), pose_sparse_p)
-    p_boundary = tf.gather(tf.reshape(Y[0][:,:,2], [-1]), pose_BC_p) 
+    
     p_sparse = tf.gather(tf.reshape(Y[0][:,:,2], [-1]), pose_sparse_p)
    
-    boundary_u_truth = tf.gather(cfd_u, pose_BC)
-    boundary_u_truth = tf.cast(boundary_u_truth, dtype='float32')
     sparse_u_truth = tf.gather(cfd_u, pose_sparse) 
     sparse_u_truth = tf.cast(sparse_u_truth, dtype='float32')
 
-    boundary_v_truth = tf.gather(cfd_v, pose_BC)
-    boundary_v_truth = tf.cast(boundary_v_truth, dtype='float32')
-    
     sparse_v_truth = tf.gather(cfd_v, pose_sparse) 
     sparse_v_truth = tf.cast(sparse_v_truth, dtype='float32')
 
@@ -561,7 +550,6 @@ def build_model_PIPN_PorousMedia():
             plotErrors2DPointCloud(CFDsolution_v(index),v_final,index,'Absolute error '+'$\it{v}$'+' (mm/s)','v error')
             plotErrors2DPointCloud(CFDsolution_p(index),p_final,index,'Absolute error '+'$\it{p}$'+' (Pa)','p error')
             
-
         #Error Analysis
         
         error_u_rel = [] ;
@@ -585,5 +573,4 @@ def build_model_PIPN_PorousMedia():
             print(error_p_rel[index])                                           
             print('\n')     
     
-
 build_model_PIPN_PorousMedia()
