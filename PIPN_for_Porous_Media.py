@@ -30,7 +30,6 @@ from tensorflow.python.keras.layers import Lambda, concatenate
 from tensorflow.python.keras import initializers
 from tensorflow import keras
 
-
 #Global variables
 data = 1 #number of domains
 Nd = 2 #dimension of problems (x,y)
