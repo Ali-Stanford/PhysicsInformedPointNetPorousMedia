@@ -1,5 +1,18 @@
-#Physics-informed PointNet for 2D Porous Media (Single Geometry)
-#Import Libraries
+##### Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet #####
+
+#Authors: Ali Kashefi (kashefi@stanford.edu)
+#Description: Implementation of Physics-informed PointNet for a 2D Porous Medium using Weakly Supervised Learning
+#Version: 1.0
+
+##### Citation #####
+#If you use the code, plesae cite the following journal paper: 
+#[Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries]
+#(https://www.sciencedirect.com/science/article/pii/S0021999122005721)
+
+##### Importing libraries #####
+#As a first step, we import the necessary libraries.
+#We use [Matplotlib](https://matplotlib.org/) for visualization purposes and [NumPy](https://numpy.org/) for computing on arrays.
+
 import os
 import csv
 import linecache
@@ -48,7 +61,7 @@ Nb = 1 #batch size, note: Nb should be less than data
 Ns = 2.0 #scaling the network
 pointer = np.zeros(shape=[Nb],dtype=int) #to save indices of batch numbers
 
-#Some functions
+#Functions
 def mat_mul(AA, BB):
     return tf.matmul(AA, BB)
 
@@ -445,8 +458,6 @@ def build_model_PIPN_PorousMedia():
     with tf.Session() as sess:
         sess.run(init)
 
-        start_ite = timer()
-
         # training loop
         for epoch in range(Np):
         
@@ -533,8 +544,6 @@ def build_model_PIPN_PorousMedia():
             
             if min_loss < criteria:
                 break 
-        
-        end_ite = timer()
         
         for index in range(data):
 
