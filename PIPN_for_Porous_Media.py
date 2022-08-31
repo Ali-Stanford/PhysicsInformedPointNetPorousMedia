@@ -551,12 +551,12 @@ def build_model_PIPN_PorousMedia():
             plotSolutions2DPointCloud(u_final,index,'Prediction $\it{u}$ (mm/s)',False,'u prediction')
             plotSolutions2DPointCloud(CFDsolution_v(index),index,'Ground truth $\it{v}$ (mm/s)',True,'v truth')
             plotSolutions2DPointCloud(v_final,index,'Prediction $\it{v}$ (mm/s)',False,'v prediction')
-            plotSolutions2DPointCloud(CFDsolution_p(index),index,'Ground truth $\it{p}$ (Pa)',True,'p truth')
+            plotSolutions2DPointCloud(CFDsolution_p(index)/10.0,index,'Ground truth $\it{p}$ (Pa)',True,'p truth')
             plotSolutions2DPointCloud(p_final/10.0,index,'Prediction $\it{p}$ (Pa)',False,'p prediction')
             
             plotErrors2DPointCloud(CFDsolution_u(index),u_final,index,'Absolute error '+'$\it{u}$'+' (mm/s)','u error')
             plotErrors2DPointCloud(CFDsolution_v(index),v_final,index,'Absolute error '+'$\it{v}$'+' (mm/s)','v error')
-            plotErrors2DPointCloud(CFDsolution_p(index),p_final,index,'Absolute error '+'$\it{p}$'+' (Pa)','p error')
+            plotErrors2DPointCloud(CFDsolution_p(index)/10.0,p_final/10.0,index,'Absolute error '+'$\it{p}$'+' (Pa)','p error')
             
         #Error Analysis
         
