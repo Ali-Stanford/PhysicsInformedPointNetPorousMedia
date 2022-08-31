@@ -5,9 +5,27 @@
 #Version: 1.0
 
 ##### Citation #####
-#If you use the code, plesae cite the following journal paper: 
-#[Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries]
-#(https://www.sciencedirect.com/science/article/pii/S0021999122005721)
+#If you use the code, plesae cite the following journal papers:
+#1. Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries
+# (https://doi.org/10.1016/j.jcp.2022.111510)**
+
+#@article{Kashefi2022PIPN,
+#title = {Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries}, <br>
+#journal = {Journal of Computational Physics},
+#volume = {468},
+#pages = {111510},
+#year = {2022}, 
+#issn = {0021-9991},
+#author = {Ali Kashefi and Tapan Mukerji}}
+
+#2. Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet
+# (https://arxiv.org/abs/2208.13434)
+
+#@article{kashefi2022PorousMediaPIPN, 
+#title={Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet},
+#author={Kashefi, Ali and Mukerji, Tapan}, 
+#journal={arXiv preprint arXiv:2208.13434}, 
+#year={2022}}
 
 ##### Importing libraries #####
 #As a first step, we import the necessary libraries.
