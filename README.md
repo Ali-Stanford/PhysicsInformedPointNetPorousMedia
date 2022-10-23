@@ -1,7 +1,7 @@
 # Physics-Informed PointNet (PIPN) for Flow Prediction in Porous Media (Single Geometry)
 **Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet (weakly-supervised learning)**
 
-**Authors:** Ali Kashefi (kashefi@stanford.edu)<br>
+**Author:** Ali Kashefi (kashefi@stanford.edu)<br>
 **Description:** Implementation of physics-informed PointNet (PIPN) for weakly-supervised learning of the Stokes flow in 2D porous media on a single geometry <br>
 **Version:** 1.0 <br>
 
