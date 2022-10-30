@@ -27,5 +27,8 @@ author={Kashefi, Ali and Mukerji, Tapan}, <br>
 journal={arXiv preprint arXiv:2208.13434}, <br>
 year={2022}} <br>
 
+**Physics-informed PointNet on Wikipedia** <br>
+[Physics-informed PointNet (PIPN) for multiple sets of irregular geometries](https://en.wikipedia.org/wiki/Physics-informed_neural_networks#Physics-informed_PointNet_(PIPN)_for_multiple_sets_of_irregular_geometries)
+
 **Questions?** <br>
 If you have any questions or need assistance, please do not hesitate to contact Ali Kashefi (kashefi@stanford.edu) via email. 
