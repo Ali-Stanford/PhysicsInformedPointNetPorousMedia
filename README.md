@@ -28,7 +28,7 @@ journal={arXiv preprint arXiv:2208.13434}, <br>
 year={2022}} <br>
 
 **Physics-informed PointNet on Wikipedia** <br>
-A general description of physics-informed neural networks (PINNs) and its other versions such as PIPN can be found in the following Wikipedia page:
+A general description of physics-informed neural networks (PINNs) and its other versions such as PIPN can be found in the following Wikipedia page:<br>
 [Physics-informed PointNet (PIPN) for multiple sets of irregular geometries](https://en.wikipedia.org/wiki/Physics-informed_neural_networks#Physics-informed_PointNet_(PIPN)_for_multiple_sets_of_irregular_geometries)
 
 **Questions?** <br>
