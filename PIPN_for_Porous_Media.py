@@ -1,6 +1,6 @@
 ##### Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet #####
 
-#Authors: Ali Kashefi (kashefi@stanford.edu)
+#Author: Ali Kashefi (kashefi@stanford.edu)
 #Description: Implementation of Physics-informed PointNet for a 2D Porous Medium using Weakly Supervised Learning
 #Version: 1.0
 
