@@ -244,7 +244,7 @@ num_points = 4231 #memory sensetive
 
 interior_point = num_points - N_boundary
 X_train = np.random.normal(size=(data, num_points, Nd))
-CFD_train = np.random.normal(size=(data, num_points, category))
+CFD_train = np.random.normal(size=(data, num_points, 3))
 X_train_mini = np.random.normal(size=(Nb, num_points, Nd))
 
 for i in range(data):
