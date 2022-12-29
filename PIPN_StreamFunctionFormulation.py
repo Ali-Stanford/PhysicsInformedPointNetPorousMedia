@@ -563,9 +563,7 @@ def build_model_PIPN_PorousMedia():
             print('error_u_rel:')
             print(error_u_rel[index])
             print('error_v_rel:')
-            print(error_v_rel[index])
-            print('error_p_rel:')
-            print(error_p_rel[index])                                           
+            print(error_v_rel[index])                                        
             print('\n')     
     
 build_model_PIPN_PorousMedia()
