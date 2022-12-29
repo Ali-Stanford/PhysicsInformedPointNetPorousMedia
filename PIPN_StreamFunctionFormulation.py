@@ -448,15 +448,9 @@ def build_model_PIPN_PorousMedia():
     cost = ComputeCost_SE(model.inputs,model.outputs)    
     vel_u = compute_u(model.outputs)
     vel_v = compute_v(model.outputs)
-    vel_p = compute_p(model.outputs)
-    vel_dp_dx = compute_dp_dx(model.inputs,model.outputs)
-    vel_dp_dy = compute_dp_dy(model.inputs,model.outputs)
     
     u_final = np.zeros((data,num_points),dtype=float)
     v_final = np.zeros((data,num_points),dtype=float)
-    p_final = np.zeros((data,num_points),dtype=float)
-    dp_dx_final = np.zeros((data,num_points),dtype=float)
-    dp_dy_final = np.zeros((data,num_points),dtype=float)
 
     optimizer = tf.train.AdamOptimizer(learning_rate = LR , beta1=0.9, beta2=0.999, epsilon=0.000001).minimize(loss = cost)
     init = tf.global_variables_initializer()
@@ -533,17 +527,9 @@ def build_model_PIPN_PorousMedia():
             if temp_cost < min_loss:
                 u_out = sess.run([vel_u],feed_dict={input_points:X_train}) 
                 v_out = sess.run([vel_v],feed_dict={input_points:X_train}) 
-                p_out = sess.run([vel_p],feed_dict={input_points:X_train}) 
-                
-                dp_dx_out = sess.run([vel_dp_dx],feed_dict={input_points:X_train})
-                dp_dy_out = sess.run([vel_dp_dy],feed_dict={input_points:X_train})
         
                 u_final = np.power(u_out[0],1.0) 
                 v_final = np.power(v_out[0],1.0)
-                p_final = np.power(p_out[0],1.0)
-                
-                dp_dx_final = np.power(dp_dx_out[0],1.0)
-                dp_dy_final = np.power(dp_dy_out[0],1.0) 
 
                 min_loss = temp_cost
                 converge_iteration = epoch
@@ -557,24 +543,19 @@ def build_model_PIPN_PorousMedia():
             plotSolutions2DPointCloud(u_final,index,'Prediction $\it{u}$ (mm/s)',False,'u prediction')
             plotSolutions2DPointCloud(CFDsolution_v(index),index,'Ground truth $\it{v}$ (mm/s)',True,'v truth')
             plotSolutions2DPointCloud(v_final,index,'Prediction $\it{v}$ (mm/s)',False,'v prediction')
-            plotSolutions2DPointCloud(CFDsolution_p(index)/10.0,index,'Ground truth $\it{p}$ (Pa)',True,'p truth')
-            plotSolutions2DPointCloud(p_final/10.0,index,'Prediction $\it{p}$ (Pa)',False,'p prediction')
             
             plotErrors2DPointCloud(CFDsolution_u(index),u_final,index,'Absolute error '+'$\it{u}$'+' (mm/s)','u error')
             plotErrors2DPointCloud(CFDsolution_v(index),v_final,index,'Absolute error '+'$\it{v}$'+' (mm/s)','v error')
-            plotErrors2DPointCloud(CFDsolution_p(index)/10.0,p_final/10.0,index,'Absolute error '+'$\it{p}$'+' (Pa)','p error')
             
         #Error Analysis
         
         error_u_rel = [] ;
         error_v_rel = [] ;
-        error_p_rel = [] ;
 
         for index in range(data):
             
             error_u_rel.append(computeRelativeL2(CFDsolution_u(index),u_final,index))
             error_v_rel.append(computeRelativeL2(CFDsolution_v(index),v_final,index))
-            error_p_rel.append(computeRelativeL2(CFDsolution_p(index),p_final,index))
 
         for index in range(data):
             print('\n')
