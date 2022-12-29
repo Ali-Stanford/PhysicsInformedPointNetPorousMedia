@@ -86,11 +86,11 @@ def mat_mul(AA, BB):
 def exp_dim(global_feature, num_points):
     return tf.tile(global_feature, [1, num_points, 1])
 
-def compute_u(Y):
+def compute_u(X,Y):
     return backend.gradients(Y[0][:,:,0], X)[0][:,:,1] #dsi/dy
 
-def compute_v(Y):
-    return backend.gradients(Y[0][:,:,0], X)[0][:,:,0] #-dsi/dx
+def compute_v(X,Y):
+    return -1.0*backend.gradients(Y[0][:,:,0], X)[0][:,:,0] #-dsi/dx
 
 def plotCost(Y,name,title):
     plt.plot(Y)
@@ -446,8 +446,8 @@ def build_model_PIPN_PorousMedia():
     criteria = J_Loss
 
     cost = ComputeCost_SE(model.inputs,model.outputs)    
-    vel_u = compute_u(model.outputs)
-    vel_v = compute_v(model.outputs)
+    vel_u = compute_u(model.inputs,model.outputs)
+    vel_v = compute_v(model.inputs,model.outputs)
     
     u_final = np.zeros((data,num_points),dtype=float)
     v_final = np.zeros((data,num_points),dtype=float)
