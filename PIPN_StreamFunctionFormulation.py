@@ -420,26 +420,22 @@ def ComputeCost_SE(X,Y):
     
     r1 =  d4si_dy4_in + d4si_dx4_in + 2.0*d4si_dy2_dx2_in
    
-    u_boundary = tf.gather(tf.reshape(Y[0][:,:,0], [-1]), pose_BC_p) #dsi_dy
-    u_sparse = tf.gather(tf.reshape(Y[0][:,:,0], [-1]), pose_sparse_p) 
-    v_boundary = tf.gather(tf.reshape(Y[0][:,:,1], [-1]), pose_BC_p) #-dsi_dx
-    v_sparse = tf.gather(tf.reshape(Y[0][:,:,1], [-1]), pose_sparse_p)
+    u_boundary = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]), pose_BC_p) #dsi_dy
+    u_sparse = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]), pose_sparse_p) #dsi_dy
     
-    p_sparse = tf.gather(tf.reshape(Y[0][:,:,2], [-1]), pose_sparse_p)
-   
+    v_boundary = -1.0*tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,1],[-1]), pose_BC_p) #-dsi_dx
+    v_sparse = -1.0*tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,1],[-1]), pose_sparse_p) #-dsi_dx
+    
     sparse_u_truth = tf.gather(cfd_u, pose_sparse) 
     sparse_u_truth = tf.cast(sparse_u_truth, dtype='float32')
 
     sparse_v_truth = tf.gather(cfd_v, pose_sparse) 
     sparse_v_truth = tf.cast(sparse_v_truth, dtype='float32')
 
-    sparse_p_truth = tf.gather(cfd_p, pose_sparse) 
-    sparse_p_truth = tf.cast(sparse_p_truth, dtype='float32')
-
     PDE_cost = tf.reduce_mean(tf.square(r1))
     BC_cost = tf.reduce_mean(tf.square(u_boundary - 0.0)+tf.square(v_boundary - 0.0))
     
-    Sparse_cost = tf.reduce_mean(tf.square(u_sparse - sparse_u_truth)+tf.square(v_sparse - sparse_v_truth)+tf.square(p_sparse - sparse_p_truth))
+    Sparse_cost = tf.reduce_mean(tf.square(u_sparse - sparse_u_truth)+tf.square(v_sparse - sparse_v_truth))
 
     return (100.0*PDE_cost + 100.0*Sparse_cost + BC_cost)
 
