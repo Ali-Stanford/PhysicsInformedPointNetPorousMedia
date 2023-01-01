@@ -351,12 +351,19 @@ cfd_u = np.zeros(data*num_points)
 cfd_v = np.zeros(data*num_points)
 cfd_p = np.zeros(data*num_points)
 
+cfd_x = np.zeros(data*num_points)
+cfd_y = np.zeros(data*num_points)
+
 counter = 0
 for j in range(data):
     for i in range(num_points):
         cfd_u[counter] = CFD_train[j][i][0]
         cfd_v[counter] = CFD_train[j][i][1]
         cfd_p[counter] = CFD_train[j][i][2]
+        
+        cfd_x[counter] = X_train[j][i][0]
+        cfd_y[counter] = X_train[j][i][1]
+        
         counter += 1
 
 def CFDsolution_u(index):
@@ -405,7 +412,7 @@ pose_sparse_p = tf.placeholder(tf.int32, None) #taken from prediction
 pose_interior_p = tf.placeholder(tf.int32, None) #taken from prediction
     
 def ComputeCost_SE(X,Y):
-
+     
     dsi_dx_in =   tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]),pose_interior_p)
     d2si_dx2_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(Y[0][:,:,0], X)[0][:,:,0], X)[0][:,:,0],[-1]),pose_interior_p)
     d3si_dx3_in = tf.gather(tf.reshape(backend.gradients(backend.gradients(backend.gradients(Y[0][:,:,0], X)[0][:,:,0], X)[0][:,:,0], X)[0][:,:,0],[-1]),pose_interior_p)
@@ -420,6 +427,8 @@ def ComputeCost_SE(X,Y):
     
     r1 =  d4si_dy4_in + d4si_dx4_in + 2.0*d4si_dy2_dx2_in
    
+    si_sparse = tf.gather(tf.reshape(Y[0][:,:,0], [-1]), pose_sparse_p)
+    
     u_boundary = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]), pose_BC_p) #dsi_dy
     u_sparse = tf.gather(tf.reshape(backend.gradients(Y[0][:,:,0], X)[0][:,:,0],[-1]), pose_sparse_p) #dsi_dy
     
@@ -431,11 +440,19 @@ def ComputeCost_SE(X,Y):
 
     sparse_v_truth = tf.gather(cfd_v, pose_sparse) 
     sparse_v_truth = tf.cast(sparse_v_truth, dtype='float32')
+    
+    sparse_x_truth = tf.gather(cfd_x, pose_sparse) 
+    sparse_x_truth = tf.cast(sparse_x_truth, dtype='float32')
+
+    sparse_y_truth = tf.gather(cfd_y, pose_sparse) 
+    sparse_y_truth = tf.cast(sparse_y_truth, dtype='float32')
 
     PDE_cost = tf.reduce_mean(tf.square(r1))
     BC_cost = tf.reduce_mean(tf.square(u_boundary - 0.0)+tf.square(v_boundary - 0.0))
     
-    Sparse_cost = tf.reduce_mean(tf.square(u_sparse - sparse_u_truth)+tf.square(v_sparse - sparse_v_truth))
+    #Sparse_cost = tf.reduce_mean(tf.square(u_sparse - sparse_u_truth)+tf.square(v_sparse - sparse_v_truth))
+
+    Sparse_cost = tf.reduce_mean(tf.square(si_sparse - sparse_u_truth*sparse_y_truth + sparse_v_truth*sparse_x_truth))
 
     return (100.0*PDE_cost + 100.0*Sparse_cost + BC_cost)
 
