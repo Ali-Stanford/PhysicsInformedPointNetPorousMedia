@@ -12,32 +12,24 @@
 If you use the code, plesae cite the following journal papers: <br>
 **1. [Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries](https://doi.org/10.1016/j.jcp.2022.111510)**
 
-@article{Kashefi2022PIPN, <br>
-title = {Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries}, <br>
-journal = {Journal of Computational Physics}, <br>
-volume = {468}, <br>
-pages = {111510}, <br>
-year = {2022}, <br>
-issn = {0021-9991}, <br>
-author = {Ali Kashefi and Tapan Mukerji}} <br>
-
-@article{Kashefi2022PIPN,
-title = {Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries},
-journal = {Journal of Computational Physics},
-volume = {468},
-pages = {111510},
-year = {2022}, 
-issn = {0021-9991},
-author = {Ali Kashefi and Tapan Mukerji}
-} 
+    @article{Kashefi2022PIPN,
+      title = {Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries},
+      journal = {Journal of Computational Physics},
+      volume = {468},
+      pages = {111510},
+      year = {2022}, 
+      issn = {0021-9991},
+      author = {Ali Kashefi and Tapan Mukerji}
+   } 
 
 **2. [Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet](https://arxiv.org/abs/2208.13434)**
 
-@article{kashefi2022PorousMediaPIPN, <br>
-title={Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet}, <br>
-author={Kashefi, Ali and Mukerji, Tapan}, <br>
-journal={arXiv preprint arXiv:2208.13434}, <br>
-year={2022}} <br>
+    @article{kashefi2022prediction,
+      title={Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet},
+      author={Kashefi, Ali and Mukerji, Tapan},
+      journal={arXiv preprint arXiv:2208.13434},
+      year={2022}
+    }
 
 **Physics-informed PointNet on Wikipedia** <br>
 A general description of physics-informed neural networks (PINNs) and its other versions such as PIPN can be found in the following Wikipedia page:<br>
