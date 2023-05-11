@@ -28,9 +28,8 @@ If you use the code, plesae cite the following journal papers: <br>
       title={Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet},
       author={Kashefi, Ali and Mukerji, Tapan},
       journal={arXiv preprint arXiv:2208.13434},
-      year={2022}
-    }
-
+      year={2022}}
+    
 **Physics-informed PointNet on Wikipedia** <br>
 A general description of physics-informed neural networks (PINNs) and its other versions such as PIPN can be found in the following Wikipedia page:<br>
 [Physics-informed PointNet (PIPN) for multiple sets of irregular geometries](https://en.wikipedia.org/wiki/Physics-informed_neural_networks#Physics-informed_PointNet_(PIPN)_for_multiple_sets_of_irregular_geometries)
