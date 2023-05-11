@@ -19,8 +19,8 @@ If you use the code, plesae cite the following journal papers: <br>
       pages = {111510},
       year = {2022}, 
       issn = {0021-9991},
-      author = {Ali Kashefi and Tapan Mukerji}
-   } 
+      author = {Ali Kashefi and Tapan Mukerji}}
+  
 
 **2. [Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet](https://arxiv.org/abs/2208.13434)**
 
