@@ -1,6 +1,6 @@
 # Physics-Informed PointNet (PIPN) for Flow Prediction in Porous Media (Single Geometry)
 
-![ly](./Figure1prime_model-1.png)
+![pic](./Figure1prime_model-1.png)
 
 **Prediction of Fluid Flow in Porous Media by Sparse Observations and Physics-Informed PointNet (weakly-supervised learning)**
 
