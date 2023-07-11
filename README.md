@@ -39,6 +39,8 @@ In case of your interest, you might watch the recorded machine learning seminar 
 [Video Presentation of PIPN at Brown University](https://www.dropbox.com/s/oafbjl6xaihotqa/GMT20220325-155140_Recording_2560x1440.mp4?dl=0) <br>
 [YouTube Video](https://www.youtube.com/watch?v=faeHARnPSVE)
 
-
 **Questions?** <br>
 If you have any questions or need assistance, please do not hesitate to contact Ali Kashefi (kashefi@stanford.edu) via email. 
+
+**About the Author** <br>
+Please see the author's website: [Ali Kashefi](https://web.stanford.edu/~kashefi/) 
