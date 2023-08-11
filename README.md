@@ -13,7 +13,7 @@ If you use the code, please cite the following journal papers: <br>
 
 **1. [Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet](https://doi.org/10.1016/j.neunet.2023.08.006)**
 
-    @article{kashefi2023porousmediaPIPN,
+    @article{kashefi2023PorousMediaPIPN,
       title={Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet},
       author={Kashefi, Ali and Mukerji, Tapan},
       journal={Neural Networks},
