@@ -7,7 +7,7 @@
 ##### Citation #####
 #If you use the code, please cite the following journal papers:
 #1. Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries
-# (https://doi.org/10.1016/j.jcp.2022.111510)**
+# https://doi.org/10.1016/j.jcp.2022.111510
 
 #@article{Kashefi2022PIPN,
 #title = {Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries}, <br>
@@ -19,7 +19,7 @@
 #author = {Ali Kashefi and Tapan Mukerji}}
 
 #2. Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet
-# (https://doi.org/10.1016/j.neunet.2023.08.006)
+# https://doi.org/10.1016/j.neunet.2023.08.006
 
 #@article{kashefi2023PorousMediaPIPN,
 #title={Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet},
