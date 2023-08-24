@@ -14,10 +14,12 @@ If you use the code, please cite the following journal papers: <br>
 **1. [Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet](https://doi.org/10.1016/j.neunet.2023.08.006)**
 
     @article{kashefi2023PorousMediaPIPN,
-      title={Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet},
-      author={Kashefi, Ali and Mukerji, Tapan},
-      journal={Neural Networks},
-      year={2023},
+      title = {Prediction of fluid flow in porous media by sparse observations and physics-informed PointNet},
+      author = {Ali Kashefi and Tapan Mukerji},
+      journal = {Neural Networks},
+      volume = {167},
+      pages = {80-91},
+      year = {2023},
       publisher={Elsevier}}
 
 **2. [Physics-informed PointNet: A deep learning solver for steady-state incompressible flows and thermal fields on multiple sets of irregular geometries](https://doi.org/10.1016/j.jcp.2022.111510)**
